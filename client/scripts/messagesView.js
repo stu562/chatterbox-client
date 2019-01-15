@@ -1,7 +1,7 @@
 var MessagesView = {
 
   $chats: $('#chats'),
-  $submit: $(''),
+  $getmessages: $('.getmessages'),
   
   initialize: function() {
     //creating the message
@@ -25,12 +25,27 @@ var MessagesView = {
           text: _.escape(data.results[i].text),
         });
         MessagesView.$chats.prepend(message);
+        // MessagesView.$getmessages.prepend(message);
       }
       console.log(data)
     });  
-
-    
-    
   }
+  
+      
+  
+}
+  
 
-};
+
+
+
+//     initialize: function() {
+//       sendMessage: Messages.$submit.on('submit', Messages.handleSubmit);
+//       },  
+//   handleSubmit: function() {
+//       var message = {
+//           username: App.username,
+//           text: $("#message").val(),//gets current text typed into input box
+//           roomname: ''
+//       };
+//           Parse.create(message);//ships off to server 
