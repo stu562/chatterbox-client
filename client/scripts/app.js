@@ -1,4 +1,6 @@
 var App = {
+  // we feel like this is the model
+    // this initializes the functions below
 
   $spinner: $('.spinner img'),
 
@@ -6,6 +8,7 @@ var App = {
 
   initialize: function() {
     App.username = window.location.search.substr(10);
+    //grabs username from user input
 
     FormView.initialize();
     RoomsView.initialize();
@@ -17,12 +20,13 @@ var App = {
 
   },
 
+  // this method uses Parse.readAll to get data from the server
+    //then uses a callback on that data from the server
   fetch: function(callback = ()=>{}) {
     Parse.readAll((data) => {
       // examine the response from the server request:
-      console.log(data);
-
-      callback();
+      // console.log(data);
+      callback(data);
     });
   },
 

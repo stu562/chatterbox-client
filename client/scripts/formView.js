@@ -9,7 +9,7 @@ var FormView = {
   handleSubmit: function(event) {
     // Stop the browser from submitting the form
     event.preventDefault();
-    
+    Parse.create();
     console.log('click!');
   },
 
@@ -19,3 +19,5 @@ var FormView = {
   }
 
 };
+
+// user input of messages they want to send
