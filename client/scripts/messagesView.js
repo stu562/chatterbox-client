@@ -18,10 +18,11 @@ var MessagesView = {
     //attach message to DOM - needs to be created for each 
     App.fetch(function(data) { 
       for (var i = 0; i < data.results.length; i++) {
-        data.results[i].username;//username
+    
+        //escape prevent malcious attacks `
         var message = MessageView.render({
-          username: data.results[i].username,
-          text: data.results[i].text
+          username: _.escape(data.results[i].username),
+          text: _.escape(data.results[i].text),
         });
         MessagesView.$chats.prepend(message);
       }
