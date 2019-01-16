@@ -1,20 +1,33 @@
 var Messages = {
+    $chats: $('#chats'),
     $submit: $('.submit'),
-    $getmessage: $('.getmessages'),
+
     initialize: function() {
         Messages.$submit.on('click', Messages.handleSubmit);
     },  
-    reinitialize: function() {
-        Messages.$getmessage.on('click', MessagesView.renderMessage);
-    },
+ 
     handleSubmit: function() {
+        //sending to server
         var message = {
               username: App.username,
               text: $("#message").val(),//gets current text typed into input box
-              roomname: ''
+              roomname: 'lobby'
         };
         Parse.create(message);//ships off to server 
-        MessagesView.renderMessage();//allows for new data to be rendered, need to change when 'get new message' button is clicked 
-  }
+
+        
+        //on submit - prepend new message to the top of #chats
+    
+        // pull from the server, only display the most recent messages that aren't already on the page
+         
+        // var newMessage = MessageView.render({ // 
+        //     username: App.username,
+        //     text: $("#message").val(),
+        // });
+        MessagesView.renderMessage();
+        // MessagesView.$chats.prepend(newMessage);
+       
+    },
+
 
 }

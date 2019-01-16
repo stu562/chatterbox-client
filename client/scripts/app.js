@@ -13,9 +13,7 @@ var App = {
     FormView.initialize();
     RoomsView.initialize();
     MessagesView.initialize();
-    Messages.initialize();
-    Messages.initialize();
-    
+    Messages.initialize();    
 
     // Fetch initial batch of messages
     App.startSpinner();

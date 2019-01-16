@@ -1,7 +1,6 @@
 var MessagesView = {
 
   $chats: $('#chats'),
-  $getmessages: $('.getmessages'),
   
   initialize: function() {
     //creating the message
@@ -17,9 +16,14 @@ var MessagesView = {
     // var message = initialize();
     //attach message to DOM - needs to be created for each 
     App.fetch(function(data) { 
-      for (var i = 0; i < data.results.length; i++) {
-    
+      for (var i = 10; i >= 0; i--) {
+        // we need some logic that checks the objectID property of each object and see if it is the same
+        // if(data.results[i].objectId === ){
+        //   continue;
+        // }
         //escape prevent malcious attacks `
+
+        // console.log(data.results[i].objectId);//this is unique id 
         var message = MessageView.render({
           username: _.escape(data.results[i].username),
           text: _.escape(data.results[i].text),
